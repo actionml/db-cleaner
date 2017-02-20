@@ -1,0 +1,24 @@
+{
+  "id": "default",
+  "description": "Default settings",
+  "engineFactory": "com.actionml.templates.dbcleaner.DBCleaner",
+  "datasource": {
+    "params" : {
+      "appName": "test-app",
+      "eventWindow": {
+        "duration": "3 days",
+        "removeDuplicates": true,
+        "compressProperties": true
+      }
+    }
+  },
+  "algorithms": [
+    {
+      "name": "db-cleaner-algo",
+      "params": {
+        "appName": "test-app"
+      }
+    }
+  ]
+}
+

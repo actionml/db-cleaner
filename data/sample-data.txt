@@ -1,0 +1,37 @@
+u1,purchase,Iphone 6,0
+u1,purchase,Iphone 5,-1
+u1,purchase,Iphone 4,-2
+u1,purchase,Ipad-retina,-3
+u1,view,Phones,0
+u1,view,Phones,-1
+u1,view,Phones,-2
+u1,view,Phones,-3
+u1,view,Phones,-4
+u1,view,Phones,-5
+u1,view,Mobile-acc,-6
+u2,purchase,Nexus,0
+u2,purchase,Nexus,-1
+u2,purchase,Nexus,-2
+u2,purchase,Galaxy,0
+u2,view,Phones,-1
+u2,view,Tablets,-2
+u2,view,Mobile-acc,-3
+u2,category-pref,tablets,-1
+u2,category-pref,phones,-6
+u3,purchase,Surface,0
+u3,view,Mobile-acc,-1
+u3,view,Mobile-acc,-2
+u3,view,Mobile-acc,-3
+u3,view,Mobile-acc,-4
+Iphone 6,$set,categories:Phones:Electronics:Apple,0
+Iphone 6,$set,categories:Phones:Electronics,-2
+Iphone 6,$set,categories:Phones:Electronics:Apple,-6
+Iphone 5,$set,categories:Phones:Electronics,0
+Iphone 5,$set,categories:Phones:Electronics:Apple,-2
+Iphone 5,$set,categories:Phones:Electronics,-6
+Nexus,$set,categories:Tablets,0
+Nexus,$set,categories:Tablets:Electronics,-2
+Nexus,$set,categories:Tablets:Electronics:Google,-6
+Galaxy,$set,categories:Phones:Electronics:Samsung,0
+Galaxy,$set,categories:Electronics:Samsung,-2
+Galaxy,$set,categories:Samsung,-6

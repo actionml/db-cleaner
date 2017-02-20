@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# exit on any error
+set -e
+
+echo ""
+echo "Integration test for The Universal Recommender."
+echo "If some step fails check that your engine.json file has been restored"
+echo "or look for it in 'user-engine.json'"
+echo ""
+
+echo "Checking for needed files"
+if [ ! -f examples/test-engine.json ]; then
+    echo "File not found: examples/handmade-engine.json"
+    exit 1
+fi
+
+if [ ! -f data/sample-data.txt ]; then
+    echo "File not found: data/sample-handmade-data.txt"
+    exit 1
+fi
+
+if [ -f user-engine.json ]; then
+    echo "File user-engine.json found, this may be an error so we cannot replace engine.json"
+    exit 1
+fi
+
+if [ ! -f data/integration-test-expected.txt ]; then
+    echo "File not found: data/integration-test-expected.txt"
+    #exit 1
+fi
+
+echo ""
+echo "Checking status, should exit if pio is not running."
+pio status
+pio app new test-app || true
+
+echo ""
+echo "Checking to see if handmade app exists, should exit if not."
+pio app show test-app
+
+echo ""
+echo "Moving engine.json to user-engine.json"
+cp -n engine.json user-engine.json
+
+echo ""
+echo "Moving examples/test-engine.json to engine.json for integration test."
+cp examples/test-engine.json engine.json
+
+echo ""
+echo "Deleting handmade app data since the test is date dependent"
+pio app data-delete test-app -f
+
+echo ""
+echo "Importing data for integration test"
+# get the access_key from pio app list
+ACCESS_KEY=`pio app show test-app | grep Key | cut -f 7 -d ' '`
+APP_ID=`pio app show test-app | grep ID | cut -f 11 -d ' '`
+echo -n "Access key: "
+echo $ACCESS_KEY
+python examples/import.py --access_key $ACCESS_KEY --file data/sample-data.txt
+
+echo ""
+echo "Get original app data"
+hdfs dfs -rm -r data-for-cleaning-test || true
+pio export --appid $APP_ID --output data-for-cleaning-test/before-cleaning
+hdfs dfs -text data-for-cleaning-test/before-cleaning/part* > data/before-cleaning.json
+
+echo "Building db-cleaner"
+pio build
+
+echo "Performing train, which will clean the DB"
+pio train  -- --driver-memory 4g --executor-memory 4g
+
+echo "Exporting the cleaned app data"
+# already done above
+#rm -r data-for-cleaning-tes/test-after-cleaning || true
+pio export --appid $APP_ID --output data-for-cleaning-test/after-cleaning
+hdfs dfs -text data-for-cleaning-test/after-cleaning/part* > data/after-cleaning.json
+
+echo ""
+echo "Restoring engine.json"
+mv user-engine.json engine.json
+
+echo ""
+echo "Differences between data/test-before-cleaning and data/test-after-cleaning"
+echo "should match rules in the engine.json for the eventWindow"
+#diff data/expected-before-cleaning.json data/before-cleaning/before.json
+#diff data/expected-after-cleaning.json data/after-cleaning.json
