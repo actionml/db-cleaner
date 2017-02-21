@@ -4,10 +4,9 @@ u1,purchase,Iphone 4,-2
 u1,view,Phones,0
 u2,purchase,Nexus,0
 u2,purchase,Galaxy,0
-u2,view,Phones,-1
-u2,view,Tablets,-2
+u2,view,Phones,0
+u2,view,Tablets,-1
 u2,category-pref,tablets,-1
-u3,purchase,Surface,0
 Iphone 6,$set,categories:Phones:Electronics:Apple,0
 Iphone 5,$set,categories:Phones:Electronics,0
 Nexus,$set,categories:Tablets,0

@@ -1,28 +1,28 @@
 u1,purchase,Iphone 6,0
 u1,purchase,Iphone 5,-1
 u1,purchase,Iphone 4,-2
-u1,purchase,Ipad-retina,-3
 u1,view,Phones,0
 u1,view,Phones,-1
 u1,view,Phones,-2
-u1,view,Phones,-3
-u1,view,Phones,-4
-u1,view,Phones,-5
-u1,view,Mobile-acc,-6
+u1,view,Phones,-6
+u1,view,Phones,-7
+u1,view,Phones,-8
+u1,view,Mobile-acc,-8
 u2,purchase,Nexus,0
 u2,purchase,Nexus,-1
-u2,purchase,Nexus,-2
+u2,purchase,Nexus,-5
+u2,purchase,Nexus,-6
+u2,purchase,Nexus,-7
 u2,purchase,Galaxy,0
-u2,view,Phones,-1
-u2,view,Tablets,-2
-u2,view,Mobile-acc,-3
+u2,view,Phones,-0
+u2,view,Tablets,-1
+u2,view,Mobile-acc,-6
 u2,category-pref,tablets,-1
 u2,category-pref,phones,-6
-u3,purchase,Surface,0
-u3,view,Mobile-acc,-1
-u3,view,Mobile-acc,-2
-u3,view,Mobile-acc,-3
-u3,view,Mobile-acc,-4
+u3,purchase,Surface,-6
+u3,view,Mobile-acc,-5
+u3,view,Mobile-acc,-6
+u3,view,Mobile-acc,-7
 Iphone 6,$set,categories:Phones:Electronics:Apple,0
 Iphone 6,$set,categories:Phones:Electronics,-2
 Iphone 6,$set,categories:Phones:Electronics:Apple,-6

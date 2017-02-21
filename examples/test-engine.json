@@ -6,7 +6,7 @@
     "params" : {
       "appName": "test-app",
       "eventWindow": {
-        "duration": "3 days",
+        "duration": "4 days",
         "removeDuplicates": true,
         "compressProperties": true
       }

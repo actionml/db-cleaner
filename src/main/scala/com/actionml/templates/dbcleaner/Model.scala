@@ -26,12 +26,3 @@ class Model()(implicit sc: SparkContext) {
   }
 
 }
-
-/*object Model {
-  @transient lazy val logger: Logger = Logger[this.type]
-
-  def apply(): Model = {
-    new Model(null, null, null, nullModel = true)(sc.get)
-  }
-}
-*/

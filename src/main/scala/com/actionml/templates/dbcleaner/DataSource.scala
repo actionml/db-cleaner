@@ -28,8 +28,7 @@ case class DataSourceParams(
   appName: String,
   eventWindow: Option[EventWindow]) extends Params
 
-/** Read specified events from the PEventStore and creates RDDs for each event. A list of pairs (eventName, eventRDD)
- *  are sent to the Preparator for further processing.
+/** Read in all app data and uses SelfCleaningDatasource to trim and compress in various ways
   *
   *  @param dsp parameters taken from engine.json
  */
