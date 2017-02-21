@@ -1,8 +1,8 @@
 u1,purchase,Iphone 6,0
 u1,purchase,Iphone 5,-1
 u1,purchase,Iphone 4,-2
-u1,view,Phones,0
-u2,purchase,Nexus,0
+u1,view,Phones,0 <---- dropped after clean incorrectly
+u2,purchase,Nexus,0 <---- dropped after clean incorrectly
 u2,purchase,Galaxy,0
 u2,view,Phones,0
 u2,view,Tablets,-1
