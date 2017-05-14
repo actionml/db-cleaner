@@ -1,6 +1,8 @@
-# PIO db-trim Template
+# `db-cleaner` Template
 
-This template can be used with any dataset stored in the PredictionIO EventServer. It maintains a timeWindow of events and preserves the current state of any properties of objects. It does this by dropping old named events, removing duplicates, and aggregating an $set/$unset events.
+This template can be used with any dataset stored in the PredictionIO EventServer. It maintains a timeWindow of events and preserves the current state of any properties of objects. It does this by dropping old named events. It can also remove duplicates and aggregate `$set/$unset` and `$delete` events, thereby compacting the dataset.
+
+This is possible by simple mods to your template but since it requires a long time to complete, it provided here as a separate template so it can be run on its own schedule independent of your main template train schedule.
 
 **WARNING**: This modifies the database. Backup before trying the first time, and read the docs carefully.
 
@@ -10,7 +12,7 @@ This template can be used with any dataset stored in the PredictionIO EventServe
 {
   "id": "default",
   "description": "Default settings",
-  "engineFactory": "com.actionML.DBClean",
+  "engineFactory": "com.actionml.DBClean",
   "datasource": {
     "params" : {
       "appName": "test-app",
