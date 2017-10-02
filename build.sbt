@@ -8,7 +8,7 @@ version := "0.1.0"
 
 organization := "com.actonml"
 
-val pioVersion = "0.11.0-SNAPSHOT"
+val pioVersion = "0.11.0-incubating"
 
 libraryDependencies ++= Seq(
   "org.apache.predictionio" %% "apache-predictionio-core" % pioVersion % "provided",
